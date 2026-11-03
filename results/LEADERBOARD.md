@@ -3,14 +3,18 @@
 Lower BPB is better. BPB = bits per UTF-8 byte on held-out documents (tokenizer-agnostic).
 Cloze = 4-way continuation ranking on test text (chance 25%).
 
-| run | arch | params (M) | train tokens (M) | test BPB | dev BPB | cloze % | distinct-2 | train TFLOPs | train tok/s | infer tok/s | RSS (MB) |
-|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| vocab16k | L6 d256 h4/4 | 9.01 | 4.00 | 1.8074 | 1.8646 | 53.8 | 0.778 | 235.09 | 3050 | 16011 | 4079 |
-| wide-L4-d320 | L4 d320 h4/4 | 7.46 | 4.00 | 1.8301 | 1.8857 | 55.5 | 0.847 | 194.60 | 4024 | 19871 | 3013 |
-| qknorm | L6 d256 h4/4 | 6.92 | 4.00 | 1.8581 | 1.9126 | 55.2 | 0.845 | 184.80 | 4008 | 14263 | 3102 |
-| base | L6 d256 h4/4 | 6.92 | 4.00 | 1.8664 | 1.9201 | 56.3 | 0.836 | 184.78 | 4211 | 14774 | 3332 |
-| gqa2 | L6 d256 h4/2 | 6.52 | 4.00 | 1.8738 | 1.9248 | 56.0 | 0.830 | 175.35 | 4306 | 15797 | 3643 |
-| vocab4k | L6 d256 h4/4 | 5.87 | 4.00 | 1.9079 | 1.9577 | 57.8 | 0.828 | 159.63 | 5222 | 13645 | 2529 |
-| lr4e-3 | L6 d256 h4/4 | 6.92 | 4.00 | 1.9148 | 1.9666 | 52.5 | 0.807 | 184.78 | 3900 | 11966 | 2914 |
-| lr1e-3 | L6 d256 h4/4 | 6.92 | 4.00 | 1.9294 | 1.9775 | 52.0 | 0.835 | 184.78 | 4041 | 12135 | 2920 |
+Budgets are fixed in tokens, but tokenizers differ in bytes per token. 'text seen' is the
+UTF-8 text the run actually trained on, so compare runs at equal text seen as well as
+equal tokens (and equal FLOPs) before crediting a tokenizer or architecture.
+
+| run | arch | params (M) | train tokens (M) | text seen (MB) | test BPB | dev BPB | cloze % | distinct-2 | train TFLOPs | train tok/s | infer tok/s | RSS (MB) |
+|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| vocab16k | L6 d256 h4/4 | 9.01 | 4.00 | 16.0 | 1.8074 | 1.8646 | 53.8 | 0.778 | 235.09 | 3050 | 16011 | 4079 |
+| wide-L4-d320 | L4 d320 h4/4 | 7.46 | 4.00 | 14.7 | 1.8301 | 1.8857 | 55.5 | 0.847 | 194.60 | 4024 | 19871 | 3013 |
+| qknorm | L6 d256 h4/4 | 6.92 | 4.00 | 14.7 | 1.8581 | 1.9126 | 55.2 | 0.845 | 184.80 | 4008 | 14263 | 3102 |
+| base | L6 d256 h4/4 | 6.92 | 4.00 | 14.7 | 1.8664 | 1.9201 | 56.3 | 0.836 | 184.78 | 4211 | 14774 | 3332 |
+| gqa2 | L6 d256 h4/2 | 6.52 | 4.00 | 14.7 | 1.8738 | 1.9248 | 56.0 | 0.830 | 175.35 | 4306 | 15797 | 3643 |
+| vocab4k | L6 d256 h4/4 | 5.87 | 4.00 | 13.2 | 1.9079 | 1.9577 | 57.8 | 0.828 | 159.63 | 5222 | 13645 | 2529 |
+| lr4e-3 | L6 d256 h4/4 | 6.92 | 4.00 | 14.7 | 1.9148 | 1.9666 | 52.5 | 0.807 | 184.78 | 3900 | 11966 | 2914 |
+| lr1e-3 | L6 d256 h4/4 | 6.92 | 4.00 | 14.7 | 1.9294 | 1.9775 | 52.0 | 0.835 | 184.78 | 4041 | 12135 | 2920 |
 

@@ -1,0 +1,19 @@
+{
+  "model": {
+    "n_layer": 6,
+    "n_head": 4,
+    "n_kv_head": 4,
+    "d_model": 256,
+    "ctx_len": 256
+  },
+  "train": {
+    "data": "data/processed/tok8192",
+    "batch_size": 32,
+    "seq_len": 256,
+    "lr": 0.002,
+    "tokens_budget": 4000000,
+    "warmup_steps": 50,
+    "eval_every": 100,
+    "seed": 2
+  }
+}
