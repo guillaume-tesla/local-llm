@@ -1,0 +1,107 @@
+{
+  "name": "lr1e-3",
+  "eval": {
+    "device": "cpu",
+    "ctx": 256,
+    "stride": 128,
+    "bpb": {
+      "dev": 1.9775,
+      "test": 1.9294
+    },
+    "bpb_detail": {
+      "dev": {
+        "bpb": 1.9775,
+        "tokens": 603132,
+        "bytes": 2233047,
+        "nll_per_token": 5.075,
+        "by_source": {
+          "abc": 1.9896,
+          "brown": 2.0117,
+          "gutenberg": 2.0759,
+          "movie_reviews": 2.0233,
+          "reuters": 1.7541,
+          "state_union": 1.7607
+        }
+      },
+      "test": {
+        "bpb": 1.9294,
+        "tokens": 404412,
+        "bytes": 1538618,
+        "nll_per_token": 5.0881,
+        "by_source": {
+          "abc": 1.9793,
+          "brown": 2.05,
+          "gutenberg": 2.2781,
+          "movie_reviews": 1.9666,
+          "reuters": 1.7609,
+          "state_union": 1.743
+        }
+      }
+    },
+    "cloze": {
+      "accuracy": 0.52,
+      "n_items": 1000,
+      "chance": 0.25
+    },
+    "generation": {
+      "distinct_2": 0.8349,
+      "n_samples": 16,
+      "new_tokens": 96,
+      "examples": [
+        "in Part said that no likely to be out as an undisclosed in pantivals and concks from his idel so is more for his words and the conversation.\n\nDaaching more than a length in the infistal palos for a small reform is important.\nOf cell:\nI found the key of their philosophia, we don't just know you all.\nThey have a word in the Sun or three years.\nFouse-",
+        ", Ramig, wharders.\n\"I'd probably go in a fine woman--\nI thought a little way in this back with the fellow \" poentet on the\nit of the first.\"\n\n\"I think we made a wall to make the first thing, you,\"\nBut I have to do, I'm asking that the worst reason to the was\nall did it be the old.\"\n\n\"I certainly have it; \"That",
+        "berogus, to trown, the findings in the Senate, and the National African, to the Federal Bulgermero, of these retalals, is the mislorne of regulially, as if the effective pynamic sars had seen the Congress, but he says.\nThe The company has helped a single, and there had a effect on the form of them, and there is in a short-stominable plan.\nIn the the"
+      ]
+    },
+    "infer_tok_per_s": 12134.6
+  },
+  "model": {
+    "params": 6917376,
+    "params_non_embedding": 4820224,
+    "config": {
+      "vocab_size": 8192,
+      "n_layer": 6,
+      "n_head": 4,
+      "n_kv_head": 4,
+      "d_model": 256,
+      "ctx_len": 256,
+      "mlp_hidden": 704,
+      "rope_theta": 10000.0,
+      "qk_norm": false,
+      "tie_embeddings": true,
+      "norm_eps": 1e-05
+    }
+  },
+  "train": {
+    "steps": 488,
+    "tokens_seen": 3997696,
+    "wall_s": 989.35,
+    "tok_per_s": 4040.7,
+    "flops_est": 184784894558208.0,
+    "peak_rss_mb": 2919.8,
+    "final_train_loss": 4.9858,
+    "config": {
+      "data": "data/processed/tok8192",
+      "batch_size": 32,
+      "seq_len": 256,
+      "tokens_budget": 4000000,
+      "lr": 0.001,
+      "min_lr_frac": 0.1,
+      "warmup_steps": 50,
+      "weight_decay": 0.1,
+      "grad_clip": 1.0,
+      "eval_every": 100,
+      "eval_windows": 64,
+      "log_every": 25,
+      "seed": 1337,
+      "amp": "none",
+      "compile": true
+    }
+  },
+  "env": {
+    "device": "cpu",
+    "torch": "2.15.0+cu132",
+    "platform": "Linux-6.18.44-fc-v230-x86_64-with-glibc2.39",
+    "cpu_threads": 4
+  }
+}
