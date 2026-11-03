@@ -1,0 +1,107 @@
+{
+  "name": "wide-L4-d320",
+  "eval": {
+    "device": "cpu",
+    "ctx": 256,
+    "stride": 128,
+    "bpb": {
+      "dev": 1.8857,
+      "test": 1.8301
+    },
+    "bpb_detail": {
+      "dev": {
+        "bpb": 1.8857,
+        "tokens": 603132,
+        "bytes": 2233047,
+        "nll_per_token": 4.8393,
+        "by_source": {
+          "abc": 1.8788,
+          "brown": 1.9213,
+          "gutenberg": 1.9953,
+          "movie_reviews": 1.9356,
+          "reuters": 1.6477,
+          "state_union": 1.6609
+        }
+      },
+      "test": {
+        "bpb": 1.8301,
+        "tokens": 404412,
+        "bytes": 1538618,
+        "nll_per_token": 4.8261,
+        "by_source": {
+          "abc": 1.8686,
+          "brown": 1.9612,
+          "gutenberg": 2.1741,
+          "movie_reviews": 1.8777,
+          "reuters": 1.6551,
+          "state_union": 1.6311
+        }
+      }
+    },
+    "cloze": {
+      "accuracy": 0.555,
+      "n_items": 1000,
+      "chance": 0.25
+    },
+    "generation": {
+      "distinct_2": 0.8474,
+      "n_samples": 16,
+      "new_tokens": 96,
+      "examples": [
+        " Ray University, is Rocal of Rairs (JAD)\nEIRNISTH, WEL-HYBURV. HER: Freater LOT, as the Manchellian\nMsince Ters: \"Oso'Tox\" in the deck, up the Latces Credl, \"We'll leave a work,\nThe King-shapplings of the AMA, and",
+        ", their way about what it is just as\nin the morning, it does not be more likely to be like your own mind, I\ndo you go it.\n\nEpombia had ever been like, for that, and then way up his mother's house\nof a while I did not know that it is no matter of me, but it is a new\nmrouce of a glir, a daughter of himself, and that it was",
+        "fore the working cases have proved a sign to be made to write levels of the dortinging.\nWhat is that Sugo says they think of the biological standardity is not only around the detectal of the last week and the future use of the transcomorial coverers.\nThe researchers're supposed to do a statistous order to help by the techniques of the state's our projects.\nThe researchers have begun to pass on the"
+      ]
+    },
+    "infer_tok_per_s": 19870.9
+  },
+  "model": {
+    "params": 7457600,
+    "params_non_embedding": 4836160,
+    "config": {
+      "vocab_size": 8192,
+      "n_layer": 4,
+      "n_head": 4,
+      "n_kv_head": 4,
+      "d_model": 320,
+      "ctx_len": 256,
+      "mlp_hidden": 832,
+      "rope_theta": 10000.0,
+      "qk_norm": false,
+      "tie_embeddings": true,
+      "norm_eps": 1e-05
+    }
+  },
+  "train": {
+    "steps": 488,
+    "tokens_seen": 3997696,
+    "wall_s": 993.6,
+    "tok_per_s": 4023.5,
+    "flops_est": 194598886440960.0,
+    "peak_rss_mb": 3013.4,
+    "final_train_loss": 4.7185,
+    "config": {
+      "data": "data/processed/tok8192",
+      "batch_size": 32,
+      "seq_len": 256,
+      "tokens_budget": 4000000,
+      "lr": 0.002,
+      "min_lr_frac": 0.1,
+      "warmup_steps": 50,
+      "weight_decay": 0.1,
+      "grad_clip": 1.0,
+      "eval_every": 100,
+      "eval_windows": 64,
+      "log_every": 25,
+      "seed": 1337,
+      "amp": "none",
+      "compile": true
+    }
+  },
+  "env": {
+    "device": "cpu",
+    "torch": "2.15.0+cu132",
+    "platform": "Linux-6.18.44-fc-v230-x86_64-with-glibc2.39",
+    "cpu_threads": 4
+  }
+}
