@@ -1,7 +1,7 @@
 # data and checkpoints are rebuilt by scripts/, never committed
 data/raw/
 data/processed/
-runs/
+/runs/
 __pycache__/
 *.pyc
 .venv/

@@ -1,0 +1,107 @@
+{
+  "name": "base",
+  "eval": {
+    "device": "cpu",
+    "ctx": 256,
+    "stride": 128,
+    "bpb": {
+      "dev": 1.9201,
+      "test": 1.8664
+    },
+    "bpb_detail": {
+      "dev": {
+        "bpb": 1.9201,
+        "tokens": 603132,
+        "bytes": 2233047,
+        "nll_per_token": 4.9277,
+        "by_source": {
+          "abc": 1.9225,
+          "brown": 1.9573,
+          "gutenberg": 2.0254,
+          "movie_reviews": 1.9688,
+          "reuters": 1.685,
+          "state_union": 1.6979
+        }
+      },
+      "test": {
+        "bpb": 1.8664,
+        "tokens": 404412,
+        "bytes": 1538618,
+        "nll_per_token": 4.9219,
+        "by_source": {
+          "abc": 1.9106,
+          "brown": 1.9976,
+          "gutenberg": 2.1997,
+          "movie_reviews": 1.9127,
+          "reuters": 1.6936,
+          "state_union": 1.6698
+        }
+      }
+    },
+    "cloze": {
+      "accuracy": 0.563,
+      "n_items": 1000,
+      "chance": 0.25
+    },
+    "generation": {
+      "distinct_2": 0.8355,
+      "n_samples": 16,
+      "new_tokens": 96,
+      "examples": [
+        "'\nMulgin: \" Inmape's Dollinger 0010-2/4 \"EClank\"\nTen, however, \" The New York-Net, after they failed to make the chance when you will go like on a time.\"\n\"His son my team, you'd no longer more,\" Juise said.\n\"Nared of a name, now, [inmbater \", TNWA, says,",
+        ", lickch, even whether that it had the Ovaule; and\nas she had been as many as to the fun, when the characters of the Lontv.\n\nAs he was an steping of the splast, the Son of Hate. He was, and the\nneaan was in his living, and there was no in the whole men\nof his mother, and that the bestness was separate,\nThe turnon",
+        "fore I make a matter, you must work to help to America who have to live in a time.\nMy own individualty of redists and fashioners is applied to those people, and to themselves, in all the Jews of our government, you who want to lose America or we can be able to apply to the rest of peace for our standards,\" he said.\n\nNew study from the American Government can prove to the sizgines, to defend them b"
+      ]
+    },
+    "infer_tok_per_s": 14774.4
+  },
+  "model": {
+    "params": 6917376,
+    "params_non_embedding": 4820224,
+    "config": {
+      "vocab_size": 8192,
+      "n_layer": 6,
+      "n_head": 4,
+      "n_kv_head": 4,
+      "d_model": 256,
+      "ctx_len": 256,
+      "mlp_hidden": 704,
+      "rope_theta": 10000.0,
+      "qk_norm": false,
+      "tie_embeddings": true,
+      "norm_eps": 1e-05
+    }
+  },
+  "train": {
+    "steps": 488,
+    "tokens_seen": 3997696,
+    "wall_s": 949.43,
+    "tok_per_s": 4210.6,
+    "flops_est": 184784894558208.0,
+    "peak_rss_mb": 3331.8,
+    "final_train_loss": 4.8223,
+    "config": {
+      "data": "data/processed/tok8192",
+      "batch_size": 32,
+      "seq_len": 256,
+      "tokens_budget": 4000000,
+      "lr": 0.002,
+      "min_lr_frac": 0.1,
+      "warmup_steps": 50,
+      "weight_decay": 0.1,
+      "grad_clip": 1.0,
+      "eval_every": 100,
+      "eval_windows": 64,
+      "log_every": 25,
+      "seed": 1337,
+      "amp": "none",
+      "compile": true
+    }
+  },
+  "env": {
+    "device": "cpu",
+    "torch": "2.15.0+cu132",
+    "platform": "Linux-6.18.44-fc-v230-x86_64-with-glibc2.39",
+    "cpu_threads": 4
+  }
+}
