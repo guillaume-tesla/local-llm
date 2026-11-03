@@ -1,0 +1,107 @@
+{
+  "name": "lr4e-3",
+  "eval": {
+    "device": "cpu",
+    "ctx": 256,
+    "stride": 128,
+    "bpb": {
+      "dev": 1.9666,
+      "test": 1.9148
+    },
+    "bpb_detail": {
+      "dev": {
+        "bpb": 1.9666,
+        "tokens": 603132,
+        "bytes": 2233047,
+        "nll_per_token": 5.0469,
+        "by_source": {
+          "abc": 1.9608,
+          "brown": 2.0004,
+          "gutenberg": 2.0764,
+          "movie_reviews": 2.0072,
+          "reuters": 1.7359,
+          "state_union": 1.7438
+        }
+      },
+      "test": {
+        "bpb": 1.9148,
+        "tokens": 404412,
+        "bytes": 1538618,
+        "nll_per_token": 5.0496,
+        "by_source": {
+          "abc": 1.9506,
+          "brown": 2.0428,
+          "gutenberg": 2.2891,
+          "movie_reviews": 1.9515,
+          "reuters": 1.7427,
+          "state_union": 1.717
+        }
+      }
+    },
+    "cloze": {
+      "accuracy": 0.525,
+      "n_items": 1000,
+      "chance": 0.25
+    },
+    "generation": {
+      "distinct_2": 0.8072,
+      "n_samples": 16,
+      "new_tokens": 96,
+      "examples": [
+        " #2: Shon lady: Reom the Lodus\n    Iquices:\nClove my usual.\n\nThe Tackite?  Shee.  In,\nThere to blind and her.  So he came up into.  And I'd thee?  Come\nSarom not, and monuely a jazen,\nHail a woman, and Miss Woodhouse should I find a day.\n\n\nGeef",
+        ", take for Rahfius on a ball in the door,\nHould not not.  It might know, in the Land, to the fellow home,\nand only a police, he made the destge,\nand that part, in his mind!\nBasta, of what he had to the whole village;\n\n\"Oh, the boat \"Gake from all the way, \"I would be\nshe had been off asleep",
+        "fore it is the very fresh time for a tough or by infied changes.\nThe small list of a short-goder that may be the concealust.\nThey don't think of the past expansion in the defantors of the people by the classic Middette were a-fopess.\nNunmer:\nPresequently a longer one new men must be to be found to be a fairlyer for no longer, or to which"
+      ]
+    },
+    "infer_tok_per_s": 11965.5
+  },
+  "model": {
+    "params": 6917376,
+    "params_non_embedding": 4820224,
+    "config": {
+      "vocab_size": 8192,
+      "n_layer": 6,
+      "n_head": 4,
+      "n_kv_head": 4,
+      "d_model": 256,
+      "ctx_len": 256,
+      "mlp_hidden": 704,
+      "rope_theta": 10000.0,
+      "qk_norm": false,
+      "tie_embeddings": true,
+      "norm_eps": 1e-05
+    }
+  },
+  "train": {
+    "steps": 488,
+    "tokens_seen": 3997696,
+    "wall_s": 1024.96,
+    "tok_per_s": 3900.3,
+    "flops_est": 184784894558208.0,
+    "peak_rss_mb": 2913.8,
+    "final_train_loss": 4.9523,
+    "config": {
+      "data": "data/processed/tok8192",
+      "batch_size": 32,
+      "seq_len": 256,
+      "tokens_budget": 4000000,
+      "lr": 0.004,
+      "min_lr_frac": 0.1,
+      "warmup_steps": 50,
+      "weight_decay": 0.1,
+      "grad_clip": 1.0,
+      "eval_every": 100,
+      "eval_windows": 64,
+      "log_every": 25,
+      "seed": 1337,
+      "amp": "none",
+      "compile": true
+    }
+  },
+  "env": {
+    "device": "cpu",
+    "torch": "2.15.0+cu132",
+    "platform": "Linux-6.18.44-fc-v230-x86_64-with-glibc2.39",
+    "cpu_threads": 4
+  }
+}
