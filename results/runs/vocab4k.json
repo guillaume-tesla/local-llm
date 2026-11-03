@@ -1,0 +1,107 @@
+{
+  "name": "vocab4k",
+  "eval": {
+    "device": "cpu",
+    "ctx": 256,
+    "stride": 128,
+    "bpb": {
+      "dev": 1.9577,
+      "test": 1.9079
+    },
+    "bpb_detail": {
+      "dev": {
+        "bpb": 1.9577,
+        "tokens": 671318,
+        "bytes": 2233047,
+        "nll_per_token": 4.5138,
+        "by_source": {
+          "abc": 1.9623,
+          "brown": 1.9854,
+          "gutenberg": 2.0573,
+          "movie_reviews": 2.0051,
+          "reuters": 1.7384,
+          "state_union": 1.7451
+        }
+      },
+      "test": {
+        "bpb": 1.9079,
+        "tokens": 451550,
+        "bytes": 1538618,
+        "nll_per_token": 4.5061,
+        "by_source": {
+          "abc": 1.9471,
+          "brown": 2.0291,
+          "gutenberg": 2.2378,
+          "movie_reviews": 1.9514,
+          "reuters": 1.7433,
+          "state_union": 1.7194
+        }
+      }
+    },
+    "cloze": {
+      "accuracy": 0.578,
+      "n_items": 1000,
+      "chance": 0.25
+    },
+    "generation": {
+      "distinct_2": 0.8283,
+      "n_samples": 16,
+      "new_tokens": 96,
+      "examples": [
+        "word 94\nB.S. Illick, with a 5, 1-1566.75-3-trire linked K. C. Meum.\nFarm.0-15, 1961-Ab. A. H.K. Lanch, 1961, (ARKLEDS &lt;ELC.T> 48 VONS 3RD QTR NET\n  Quanted to 10.",
+        "werets to me.\n\n\"What's this often, I shall say that there was very good.\"\n\n\"He is a little digious old,?\" cried Pate's pen's.\nI may be able to give him out his nose, that is not she,\nbut to whom if you can mean you \", she said, \"What were it?\"\n\n\"For a letter\na breadw must be satisfied, and his",
+        " the fireward, that the public objects of others can repart .\nin one day, in the Indian and Thesball Frehman has been installed as an real Asianian Molarians.\nThis film is a great exchange of the next four years.\nIt is to be working at many thousands as a few states, so that they would have been impossible to keep the interest in which, but they have to"
+      ]
+    },
+    "infer_tok_per_s": 13644.9
+  },
+  "model": {
+    "params": 5868800,
+    "params_non_embedding": 4820224,
+    "config": {
+      "vocab_size": 4096,
+      "n_layer": 6,
+      "n_head": 4,
+      "n_kv_head": 4,
+      "d_model": 256,
+      "ctx_len": 256,
+      "mlp_hidden": 704,
+      "rope_theta": 10000.0,
+      "qk_norm": false,
+      "tie_embeddings": true,
+      "norm_eps": 1e-05
+    }
+  },
+  "train": {
+    "steps": 488,
+    "tokens_seen": 3997696,
+    "wall_s": 765.62,
+    "tok_per_s": 5221.5,
+    "flops_est": 159633566072832.0,
+    "peak_rss_mb": 2529.0,
+    "final_train_loss": 4.44,
+    "config": {
+      "data": "data/processed/tok4096",
+      "batch_size": 32,
+      "seq_len": 256,
+      "tokens_budget": 4000000,
+      "lr": 0.002,
+      "min_lr_frac": 0.1,
+      "warmup_steps": 50,
+      "weight_decay": 0.1,
+      "grad_clip": 1.0,
+      "eval_every": 100,
+      "eval_windows": 64,
+      "log_every": 25,
+      "seed": 1337,
+      "amp": "none",
+      "compile": true
+    }
+  },
+  "env": {
+    "device": "cpu",
+    "torch": "2.15.0+cu132",
+    "platform": "Linux-6.18.44-fc-v230-x86_64-with-glibc2.39",
+    "cpu_threads": 4
+  }
+}
