@@ -1,0 +1,107 @@
+{
+  "name": "qknorm",
+  "eval": {
+    "device": "cpu",
+    "ctx": 256,
+    "stride": 128,
+    "bpb": {
+      "dev": 1.9126,
+      "test": 1.8581
+    },
+    "bpb_detail": {
+      "dev": {
+        "bpb": 1.9126,
+        "tokens": 603132,
+        "bytes": 2233047,
+        "nll_per_token": 4.9083,
+        "by_source": {
+          "abc": 1.9114,
+          "brown": 1.9481,
+          "gutenberg": 2.0201,
+          "movie_reviews": 1.9622,
+          "reuters": 1.6752,
+          "state_union": 1.6909
+        }
+      },
+      "test": {
+        "bpb": 1.8581,
+        "tokens": 404412,
+        "bytes": 1538618,
+        "nll_per_token": 4.9001,
+        "by_source": {
+          "abc": 1.8989,
+          "brown": 1.9881,
+          "gutenberg": 2.1932,
+          "movie_reviews": 1.9058,
+          "reuters": 1.6839,
+          "state_union": 1.6646
+        }
+      }
+    },
+    "cloze": {
+      "accuracy": 0.552,
+      "n_items": 1000,
+      "chance": 0.25
+    },
+    "generation": {
+      "distinct_2": 0.8454,
+      "n_samples": 16,
+      "new_tokens": 96,
+      "examples": [
+        "ra wheat\nIn Coy S. Vimon Gengen: De House. 13-1390\nTypographical Error: I mean and to be able to use a munge. This\nPetine, if I had no very high air?\n[JINT TAMH. Pp.\n\nFON: You haue been like a garden. What they are hardly accouraged]\nRahlate: Wrep. I",
+        " on fing or power.\nBut, it is anial, with the flumper, and they be a few point in the sea.\nHer lass was also a choice of more than the whole morpue, and then who were sickened from handing.\nOne end would be the best time.\nBut it is a reasonableness of a mutic cabest in the sea, one of the year, leaving the maidy destution",
+        "fore I ask to give this concudification.\nThe latest favusing can be used.\nBut far as well as much as you might seem to be more than in the Japanese and spending.\nI'm not to know what we can use very necessary to buy off with it, and we have guined to fame on them.\nA minute of these members are available as our findings in the Stost will be played by the past of the study in the"
+      ]
+    },
+    "infer_tok_per_s": 14262.6
+  },
+  "model": {
+    "params": 6918144,
+    "params_non_embedding": 4820992,
+    "config": {
+      "vocab_size": 8192,
+      "n_layer": 6,
+      "n_head": 4,
+      "n_kv_head": 4,
+      "d_model": 256,
+      "ctx_len": 256,
+      "mlp_hidden": 704,
+      "rope_theta": 10000.0,
+      "qk_norm": true,
+      "tie_embeddings": true,
+      "norm_eps": 1e-05
+    }
+  },
+  "train": {
+    "steps": 488,
+    "tokens_seen": 3997696,
+    "wall_s": 997.32,
+    "tok_per_s": 4008.5,
+    "flops_est": 184803315941376.0,
+    "peak_rss_mb": 3101.7,
+    "final_train_loss": 4.8001,
+    "config": {
+      "data": "data/processed/tok8192",
+      "batch_size": 32,
+      "seq_len": 256,
+      "tokens_budget": 4000000,
+      "lr": 0.002,
+      "min_lr_frac": 0.1,
+      "warmup_steps": 50,
+      "weight_decay": 0.1,
+      "grad_clip": 1.0,
+      "eval_every": 100,
+      "eval_windows": 64,
+      "log_every": 25,
+      "seed": 1337,
+      "amp": "none",
+      "compile": true
+    }
+  },
+  "env": {
+    "device": "cpu",
+    "torch": "2.15.0+cu132",
+    "platform": "Linux-6.18.44-fc-v230-x86_64-with-glibc2.39",
+    "cpu_threads": 4
+  }
+}
